@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
-import { usePathname } from "next/navigation";
+//import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import MobileNavLink from "./MobileNavLink";
 import { AnimatePresence, motion } from "framer-motion";
@@ -15,23 +15,26 @@ const navLinks = [
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const toggleMenu = () => {
+    setIsOpen((prevState) => !prevState);
+  };
 
-  const pathname = usePathname();
+  /*  const pathname = usePathname();
 
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
-
+ */
   /*  const closeOnCurrent = (href: string) => {
     if (pathname === href) {
       setIsOpen(false);
     }
   }; */
 
-  useEffect(() => {
+  /*  useEffect(() => {
     if (isOpen) document.body.classList.add("overflow-hidden");
     else document.body.classList.remove("overflow-hidden");
-  }, [isOpen]);
+  }, [isOpen]); */
 
   const menuVariants = {
     initial: {
@@ -58,70 +61,67 @@ const MobileNav = () => {
     initial: {
       transition: {
         staggerChildren: 0.09,
-        staggerDirection: -1
+        staggerDirection: -1,
       },
     },
     open: {
       transition: {
         delayChildren: 0.3,
         staggerChildren: 0.09,
-        staggerDirection: 1
+        staggerDirection: 1,
       },
     },
   };
 
-  if (!isOpen)
-    return (
+  return (
+    <>
       <button
         type="button"
-        onClick={() => setIsOpen(true)}
-        className="lg:hidden relative -m-2 inline-flex items-center justify-center rounded-md p-2"
+        onClick={toggleMenu}
+        className="md:hidden p-2 relative inline-flex items-center justify-center"
       >
-        <Menu className="h-6 w-6" aria-hidden="true" />
+        <Menu className="h-10 w-10" aria-hidden="true" />
       </button>
-    );
-
-  return (
-    <AnimatePresence>
-      <motion.div
-        variants={menuVariants}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        className="fixed left-0 top-0 w-full h-screen text-white bg-black p-10 origin-top"
-      >
-        <div className="flex h-full flex-col">
-          <div className="flex justify-end">
-            <button
-              type="button"
-              onClick={() => setIsOpen(false)}
-              className="relative end-1 inline-flex items-center justify-center rounded-md p-2 text-white"
-            >
-              <X className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
+      <AnimatePresence>
+        {isOpen && (
           <motion.div
-            variants={containerVariants}
+            variants={menuVariants}
             initial="initial"
-            animate="open"
-            exit="initial"
-            className="flex flex-col h-full justify-center items-center gap-6"
+            animate="animate"
+            exit="exit"
+            className="fixed left-0 top-0 w-full h-screen text-white-smoke bg-black origin-top"
           >
-            {navLinks.map((link, index) => {
-              return (
-                <div className=" overflow-hidden">
-                  <MobileNavLink
-                    title={link.title}
-                    href={link.href}
-                    key={index}
-                  />
-                </div>
-              );
-            })}
+            <div className="flex h-full flex-col">
+              <div className="flex justify-end">
+                <button
+                  type="button"
+                  onClick={toggleMenu}
+                  className="relative end-1 inline-flex items-center justify-center rounded-md p-2 text-white-smoke"
+                >
+                  <X className="h-10 w-10" aria-hidden="true" />
+                </button>
+              </div>
+              <motion.div
+                variants={containerVariants}
+                initial="initial"
+                animate="open"
+                exit="initial"
+                className="flex flex-col h-full justify-center items-center gap-8"
+              >
+                {navLinks.map((link, index) => (
+                  <div key={index} className=" overflow-hidden">
+                    <MobileNavLink
+                      title={link.title}
+                      href={link.href}
+                    />
+                  </div>
+                ))}
+              </motion.div>
+            </div>
           </motion.div>
-        </div>
-      </motion.div>
-    </AnimatePresence>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

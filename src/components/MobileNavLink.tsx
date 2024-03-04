@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface MobileNavLinkProps {
     title: string
@@ -26,7 +26,7 @@ const MobileNavLink = ({title, href}: MobileNavLinkProps) => {
   }
 
   return (
-    <motion.div variants={linkVariants} className="text-5xl uppercase text-white">
+    <motion.div variants={linkVariants} className="text-4xl uppercase text-white-smoke">
         <Link href={href}>
             {title}
         </Link>
