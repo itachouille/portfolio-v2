@@ -9,8 +9,7 @@ import { AnimatePresence, motion } from "framer-motion";
 const navLinks = [
   { title: "about", href: "/about" },
   { title: "work", href: "/work" },
-  { title: "social", href: "/" },
-  { title: "get in touch", href: "/get_in_touch" },
+  { title: "contact", href: "/contact" },
 ];
 
 const MobileNav = () => {
@@ -75,13 +74,21 @@ const MobileNav = () => {
 
   return (
     <>
-      <button
+    <div className="w-full h-[12vh] md:hidden flex items-center justify-between px-10">
+      <div>
+        logo
+      </div>
+      <div className="flex items-center h-full pl-10 border-l border-border">
+        <button
         type="button"
         onClick={toggleMenu}
-        className="md:hidden p-2 relative inline-flex items-center justify-center"
       >
         <Menu className="h-10 w-10" aria-hidden="true" />
       </button>
+      </div>
+      
+    </div>
+      
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -92,11 +99,11 @@ const MobileNav = () => {
             className="fixed left-0 top-0 w-full h-screen text-white-smoke bg-black origin-top"
           >
             <div className="flex h-full flex-col">
-              <div className="flex justify-end">
+              <div className="flex justify-end h-[12vh] px-10">
                 <button
                   type="button"
                   onClick={toggleMenu}
-                  className="relative end-1 inline-flex items-center justify-center rounded-md p-2 text-white-smoke"
+                  className="relative end-1 inline-flex items-center justify-center rounded-md text-white-smoke"
                 >
                   <X className="h-10 w-10" aria-hidden="true" />
                 </button>
@@ -106,10 +113,10 @@ const MobileNav = () => {
                 initial="initial"
                 animate="open"
                 exit="initial"
-                className="flex flex-col h-full justify-center items-center gap-8"
+                className="flex flex-col h-full justify-center items-center gap-16 -mt-[10rem]"
               >
                 {navLinks.map((link, index) => (
-                  <div key={index} className=" overflow-hidden">
+                  <div key={index} className="overflow-hidden">
                     <MobileNavLink
                       title={link.title}
                       href={link.href}

@@ -2,7 +2,7 @@ import MobileNav from "./MobileNav";
 
 const Navbar = () => {
   return (
-    <header className="flex w-full border-b-2 justify-end bg-background text-white-smoke border-border">
+    <header className="flex w-full border-b bg-background text-white-smoke border-border">
       <MobileNav />
       <div className="hidden md:contents">
         <div className="flex basis-[calc(100%/3)] py-12 px-8 gap-4 border-l border-border items-center content-start">

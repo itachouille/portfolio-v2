@@ -1,9 +1,9 @@
 export default function Home() {
   return (
-    <section className="w-full px-20 bg-background">
-      <div className="py-40">
-        <div className="m-40">
-          <h1 className="text-8xl text-white-smoke font-bold">
+    <section className="w-screen h-screen px-10 bg-background">
+      <div className=" py-10">
+        <div className="m-5">
+          <h1 className="text-2xl text-white-smoke font-bold">
             Anthony DAVID, Frontend Developer
           </h1>
         </div>
