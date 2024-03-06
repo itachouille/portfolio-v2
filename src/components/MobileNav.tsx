@@ -1,13 +1,13 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
-//import { usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import MobileNavLink from "./MobileNavLink";
 import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
-  { title: "about", href: "/about" },
+  { title: "home", href: "/" },
   { title: "work", href: "/work" },
   { title: "contact", href: "/contact" },
 ];
@@ -18,22 +18,22 @@ const MobileNav = () => {
     setIsOpen((prevState) => !prevState);
   };
 
-  /*  const pathname = usePathname();
+   const pathname = usePathname();
 
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
- */
-  /*  const closeOnCurrent = (href: string) => {
+ 
+  const closeOnCurrent = (href: string) => {
     if (pathname === href) {
       setIsOpen(false);
     }
-  }; */
+  };
 
-  /*  useEffect(() => {
+  useEffect(() => {
     if (isOpen) document.body.classList.add("overflow-hidden");
     else document.body.classList.remove("overflow-hidden");
-  }, [isOpen]); */
+  }, [isOpen]);
 
   const menuVariants = {
     initial: {
@@ -74,8 +74,8 @@ const MobileNav = () => {
 
   return (
     <>
-    <div className="w-full h-[12vh] md:hidden flex items-center justify-between px-10">
-      <div>
+    <div className="w-full md:hidden flex items-center justify-between px-10">
+      <div className="flex items-center h-20">
         logo
       </div>
       <div className="flex items-center h-full pl-10 border-l border-border">
@@ -86,7 +86,6 @@ const MobileNav = () => {
         <Menu className="h-10 w-10" aria-hidden="true" />
       </button>
       </div>
-      
     </div>
       
       <AnimatePresence>
@@ -96,14 +95,14 @@ const MobileNav = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed left-0 top-0 w-full h-screen text-white-smoke bg-black origin-top"
+            className="fixed left-0 top-0 w-full h-full bg-yellow-400 origin-top"
           >
             <div className="flex h-full flex-col">
               <div className="flex justify-end h-[12vh] px-10">
                 <button
                   type="button"
                   onClick={toggleMenu}
-                  className="relative end-1 inline-flex items-center justify-center rounded-md text-white-smoke"
+                  className="relative end-1 inline-flex items-center justify-center rounded-md text-black"
                 >
                   <X className="h-10 w-10" aria-hidden="true" />
                 </button>

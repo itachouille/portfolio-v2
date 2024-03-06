@@ -26,7 +26,7 @@ const MobileNavLink = ({title, href}: MobileNavLinkProps) => {
   }
 
   return (
-    <motion.div variants={linkVariants} className="text-4xl uppercase text-white-smoke">
+    <motion.div variants={linkVariants} className="text-4xl uppercase text-black">
         <Link href={href}>
             {title}
         </Link>
