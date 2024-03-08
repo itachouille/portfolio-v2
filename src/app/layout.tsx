@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"] });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "DAVID Anthony | Portfolio",
@@ -16,10 +18,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Navbar />
-        {children}
+    <html className="h-full" lang="en">
+      <body
+        className={cn(
+          "relative h-full font-sans antialiased",
+          spaceGrotesk.className
+        )}
+      >
+        <main className="relative flex flex-col min-h-screen">
+          <Navbar />
+          <div className="flex-grow flex-1">{children}</div>
+          <Footer />
+        </main>
       </body>
     </html>
   );

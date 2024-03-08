@@ -1,19 +1,22 @@
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import Image from "next/image";
+
 export default function Home() {
   return (
-    <section className="w-screen h-screen px-10 bg-background">
-      <div className="pt-10 mx-5">
-        <div className="">
-          <h1 className="text-3xl text-white-smoke font-bold">
-            Anthony DAVID, Frontend Developer
-          </h1>
-        </div>
-        <div className="mt-4">
-          <p className="text-white-smoke font-medium">
-            I’m a French Frontend Developer based in Riec-sur-Bélon,
-            France. Creating digital experiences with love.
-          </p>
-        </div>
+    <MaxWidthWrapper>
+      <div className="py-10 px-5 mx-auto text-left flex flex-col">
+        <h1 className="text-3xl text-white-smoke font-bold">Anthony DAVID</h1>
+        <p className="text-2xl text-white-smoke">Frontend Developer</p>
       </div>
-    </section>
+      <div className="px-5">
+        <p className="text-white-smoke font-medium">
+          I’m a French Frontend Developer based in Riec-sur-Bélon, France.
+          Creating digital experiences with love.
+        </p>
+      </div>
+      <div className="relative my-10 m-auto h-96 w-60" aria-hidden="true">
+        <Image src="/hero.png" alt="hero image" fill />
+      </div>
+    </MaxWidthWrapper>
   );
 }
