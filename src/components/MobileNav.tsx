@@ -18,12 +18,12 @@ const MobileNav = () => {
     setIsOpen((prevState) => !prevState);
   };
 
-   const pathname = usePathname();
+  const pathname = usePathname();
 
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
- 
+
   const closeOnCurrent = (href: string) => {
     if (pathname === href) {
       setIsOpen(false);
@@ -74,20 +74,15 @@ const MobileNav = () => {
 
   return (
     <>
-    <div className="w-full md:hidden flex items-center justify-between px-10">
-      <div className="flex items-center h-20">
-        logo
+      <div className="w-full md:hidden flex items-center justify-between px-10">
+        <div className="flex items-center h-20">logo</div>
+        <div className="flex items-center h-full pl-10 border-l border-border">
+          <button type="button" onClick={toggleMenu}>
+            <Menu className="h-10 w-10" aria-hidden="true" />
+          </button>
+        </div>
       </div>
-      <div className="flex items-center h-full pl-10 border-l border-border">
-        <button
-        type="button"
-        onClick={toggleMenu}
-      >
-        <Menu className="h-10 w-10" aria-hidden="true" />
-      </button>
-      </div>
-    </div>
-      
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -95,7 +90,7 @@ const MobileNav = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed left-0 top-0 w-full h-full bg-yellow-400 origin-top"
+            className="fixed z-50 left-0 top-0 w-full h-full bg-yellow-400 origin-top"
           >
             <div className="flex h-full flex-col">
               <div className="flex justify-end h-[12vh] px-10">
@@ -112,14 +107,11 @@ const MobileNav = () => {
                 initial="initial"
                 animate="open"
                 exit="initial"
-                className="flex flex-col h-full justify-center items-center gap-16 -mt-[10rem]"
+                className="flex flex-col h-full justify-center items-center gap-16 -mt-[8rem]"
               >
                 {navLinks.map((link, index) => (
                   <div key={index} className="overflow-hidden">
-                    <MobileNavLink
-                      title={link.title}
-                      href={link.href}
-                    />
+                    <MobileNavLink title={link.title} href={link.href} />
                   </div>
                 ))}
               </motion.div>

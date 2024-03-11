@@ -21,13 +21,13 @@ export default function RootLayout({
     <html className="h-full" lang="en">
       <body
         className={cn(
-          "relative h-full font-sans antialiased",
+          "relative h-full antialiased",
           spaceGrotesk.className
         )}
       >
         <main className="relative flex flex-col min-h-screen">
           <Navbar />
-          <div className="flex-grow flex-1">{children}</div>
+          <div className="flex flex-grow flex-1">{children}</div>
           <Footer />
         </main>
       </body>
