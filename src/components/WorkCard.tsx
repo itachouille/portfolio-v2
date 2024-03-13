@@ -1,4 +1,4 @@
-import { MoveLeft, MoveRight, Navigation } from "lucide-react";
+import { Navigation } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,7 +11,7 @@ interface WorkCardProps {
 
 const WorkCard = ({title, image, description, link}: WorkCardProps) => {
   return (
-    <div className="flex flex-col">
+    <div>
       <div className="relative w-full h-64" aria-hidden="true">
         <Image src={image} alt="project image" fill />
       </div>
@@ -31,22 +31,8 @@ const WorkCard = ({title, image, description, link}: WorkCardProps) => {
           {description}
         </p>
       </div>
-      <div className="flex items-center  justify-evenly border-b border-border">
-        <div className="flex justify-center w-1/2 p-6 border-r border-border">
-          <MoveLeft
-            className="h-10 w-10 text-white-smoke "
-            aria-hidden="true"
-          />
-        </div>
-        <div className="flex items-center justify-center w-1/2 p-6 ">
-          <MoveRight
-            className="h-10 w-10 text-white-smoke"
-            aria-hidden="true"
-          />
-        </div>
-      </div>
-    </div>
-  );
+     </div>
+  ); 
 };
 
 export default WorkCard;
