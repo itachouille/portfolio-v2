@@ -1,4 +1,4 @@
-export const Work = [
+export const Work: { title: string, image: string | { url: string }, description: string, link: string }[]  = [
   {
     title: "Travel Application",
     image: "/travel_app.png",
