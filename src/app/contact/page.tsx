@@ -1,11 +1,13 @@
+import ContactForm from "@/components/ContactForm"
+import MaxWidthWrapper from "@/components/MaxWidthWrapper"
 
 const Page = () => {
+
   return (
-    <div className="flex flex-col justify-center gap-4">
-      <input type="email" name="" id="" placeholder="email"/>
-      <input type="text" name="" id="" placeholder="your request"/>
-      <button>Send</button>
-    </div>
+      <MaxWidthWrapper className="text-center pt-8">
+        <h1 className="text-3xl text-white-smoke font-bold">Contact me</h1>
+        <ContactForm />
+      </MaxWidthWrapper>
   )
 }
 

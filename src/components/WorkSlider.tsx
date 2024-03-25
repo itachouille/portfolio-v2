@@ -1,6 +1,6 @@
 "use client";
 
-import { Navigation } from "lucide-react";
+import { ArrowUpRight } from 'lucide-react';
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -65,10 +65,9 @@ const WorkSlider = ({ urls, title, description, link}: ImageSliderProps) => {
                 {title[i]}
               </h1>
               <Link href={link[i]}>
-                <Navigation
-                  className="h-10 w-10 text-white-smoke"
-                  aria-hidden="true"
-                />
+              <ArrowUpRight  className="h-10 w-10 text-white-smoke"
+                  aria-hidden="true"/>
+               
               </Link>
             </div>
             <div>
