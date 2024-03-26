@@ -90,14 +90,14 @@ const MobileNav = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed z-50 left-0 top-0 w-full h-full bg-yellow-400 origin-top"
+            className="fixed z-50 left-0 top-0 w-full h-full bg-black origin-top"
           >
             <div className="flex h-full flex-col">
               <div className="flex justify-end h-[12vh] px-10">
                 <button
                   type="button"
                   onClick={toggleMenu}
-                  className="relative end-1 inline-flex items-center justify-center rounded-md text-black"
+                  className="relative end-1 inline-flex items-center justify-center rounded-md text-white-smoke"
                 >
                   <X className="h-10 w-10" aria-hidden="true" />
                 </button>

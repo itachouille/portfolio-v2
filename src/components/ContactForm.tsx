@@ -30,9 +30,12 @@ const ContactForm = () => {
 
     toast.error("Something went wrong");
   };
+
   return (
+    <>
+     <h1 className="text-center text-3xl text-white-smoke font-bold pt-6">Get in touch</h1>
     <form
-      className="flex flex-1 flex-col gap-4 text-white-smoke"
+      className="flex flex-1 flex-col gap-4 text-white-smoke p-6"
       onSubmit={handleSubmit(processForm)}
     >
       <div>
@@ -80,6 +83,7 @@ const ContactForm = () => {
         {isSubmitting ? "Submitting..." : "Submit"}
       </button>
     </form>
+    </>
   );
 };
 
