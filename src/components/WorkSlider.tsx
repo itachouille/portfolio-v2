@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,10 +18,10 @@ interface ImageSliderProps {
   link: string[];
 }
 
-const WorkSlider = ({ urls, title, description, link}: ImageSliderProps) => {
+const WorkSlider = ({ urls, title, description, link }: ImageSliderProps) => {
   const [swiper, setSwiper] = useState<null | SwiperType>(null);
   const [activeIndex, setActiveIndex] = useState(0);
- 
+
   const [slideConfig, setSlideConfig] = useState({
     isBeginning: true,
     isEnd: activeIndex === (urls.length ?? 0) - 1,
@@ -51,7 +51,7 @@ const WorkSlider = ({ urls, title, description, link}: ImageSliderProps) => {
       >
         {urls.map((url, i) => (
           <SwiperSlide key={i} className="-z-10 relative h-full w-full">
-            <div className="relative h-[18rem]">
+            <div className="relative h-[15rem]">
               <Image
                 fill
                 loading="eager"
@@ -65,9 +65,10 @@ const WorkSlider = ({ urls, title, description, link}: ImageSliderProps) => {
                 {title[i]}
               </h1>
               <Link href={link[i]}>
-              <ArrowUpRight  className="h-10 w-10 text-white-smoke"
-                  aria-hidden="true"/>
-               
+                <ArrowUpRight
+                  className="h-10 w-10 text-white-smoke"
+                  aria-hidden="true"
+                />
               </Link>
             </div>
             <div>

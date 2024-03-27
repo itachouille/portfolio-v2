@@ -80,7 +80,7 @@ const ContactForm = () => {
           <textarea
             rows={5}
             cols={5}
-            className="peer w-full rounded border border-neutral-500 p-2 text-sm focus:border-indigo-500"
+            className="peer w-full rounded border border-neutral-500 p-2 text-sm focus:border-indigo-500 resize-none"
             {...register("message")}
           />
           <span

@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'background': 'rgba(5, 10, 24, 0.9)',
-        'border': 'rgb(255, 255, 255, 0.1)',
+        'background': 'rgba(0, 0, 0, 0.99)',
+        'border': 'rgb(255, 255, 255, 0.2)',
         'highlight': 'rgb(126, 87, 194)',
         'white-smoke': "#f2f2f2"
       },

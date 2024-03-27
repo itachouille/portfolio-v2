@@ -90,7 +90,7 @@ const MobileNav = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed z-50 left-0 top-0 w-full h-full bg-black origin-top"
+            className="fixed z-50 left-0 top-0 w-full h-full bg-background origin-top"
           >
             <div className="flex h-full flex-col">
               <div className="flex justify-end h-[12vh] px-10">
