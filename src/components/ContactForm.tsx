@@ -33,56 +33,75 @@ const ContactForm = () => {
 
   return (
     <>
-     <h1 className="text-center text-3xl text-white-smoke font-bold pt-6">Get in touch</h1>
-    <form
-      className="flex flex-1 flex-col gap-4 text-white-smoke p-6"
-      onSubmit={handleSubmit(processForm)}
-    >
-      <div>
-        <input
-          placeholder="name"
-          className="w-full rounded-lg"
-          {...register("name")}
-        />
-        {errors.name?.message && (
-          <p className="ml-1 mt-1 text-sm text-red-400">
-            {errors.name.message}
-          </p>
-        )}
-      </div>
-      <div>
-        <input
-          placeholder="email"
-          className="w-full rounded-lg"
-          {...register("email")}
-        />
-        {errors.email?.message && (
-          <p className="ml-1 mt-1 text-sm text-red-400">
-            {errors.email.message}
-          </p>
-        )}
-      </div>
-      <div>
-        <textarea
-          rows={5}
-          cols={5}
-          placeholder="message"
-          className="w-full rounded-lg"
-          {...register("message")}
-        />
-        {errors.message?.message && (
-          <p className="ml-1 mt-1 text-sm text-red-400">
-            {errors.message.message}
-          </p>
-        )}
-      </div>
-      <button
-        className="rounded-lg border border-white-smoke py-2 font-medium"
-        disabled={isSubmitting}
+      <h1 className="text-center text-3xl text-white-smoke font-bold pt-6">
+        Get in touch
+      </h1>
+      <form
+        className="flex flex-1 flex-col gap-10 p-10"
+        onSubmit={handleSubmit(processForm)}
       >
-        {isSubmitting ? "Submitting..." : "Submit"}
-      </button>
-    </form>
+        <label className="relative block w-full">
+          <input
+            type="text"
+            className="peer w-full rounded border border-neutral-500 p-2 text-sm focus:border-indigo-500"
+            {...register("name")}
+          />
+          <span
+            className="absolute left-2 top-0 -translate-y-1/2 rounded scale-100 bg-white px-2 text-xs font-bold transition-transform
+            peer-focus:scale-0"
+          >
+            Name
+          </span>
+          {errors.name?.message && (
+            <p className="ml-1 mt-1 text-sm text-red-500">
+              {errors.name.message}
+            </p>
+          )}
+        </label>
+        <label className="relative block w-full">
+          <input
+            type="email"
+            className="peer w-full rounded border border-neutral-500 p-2 text-sm focus:border-indigo-500"
+            {...register("email")}
+          />
+          <span
+            className="absolute left-2 top-0 rounded -translate-y-1/2 scale-100 bg-white px-2 text-xs font-bold transition-transform
+            peer-focus:scale-0"
+          >
+            Email
+          </span>
+          {errors.email?.message && (
+            <p className="ml-1 mt-1 text-sm text-red-500">
+              {errors.email.message}
+            </p>
+          )}
+        </label>
+        <label className="relative block w-full">
+          <textarea
+            rows={5}
+            cols={5}
+            className="peer w-full rounded border border-neutral-500 p-2 text-sm focus:border-indigo-500"
+            {...register("message")}
+          />
+          <span
+            className="absolute left-2 top-0 -translate-y-1/2 rounded scale-100 bg-white px-2 text-xs font-bold transition-transform
+            peer-focus:scale-0"
+          >
+            Message
+          </span>
+          {errors.message?.message && (
+            <p className="ml-1 mt-1 text-sm text-red-500">
+              {errors.message.message}
+            </p>
+          )}
+        </label>
+        <button
+          className="rounded-lg border text-white-smoke border-white-smoke py-2 font-bold"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? "Submitting..." : "Submit"}
+        </button>
+      </form>
     </>
   );
 };
